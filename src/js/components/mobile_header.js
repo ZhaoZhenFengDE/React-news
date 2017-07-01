@@ -50,7 +50,6 @@ class MobileHeader extends React.Component {
 			method: 'GET'
 		};
 		var formData= this.props.form.getFieldsValue();
-		console.log(formData);
 		fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=${this.state.action}&username=${formData.userName}&password=${formData.password}&r_userName=" + {formData.r_userName} + "&r_password="${formData.r_password} + "&r_confirmPassword=${formData.r_confirmPassword}`, myFetchOptions)
 		.then(response => response.json())
 		.then((json) => {
@@ -82,7 +81,7 @@ class MobileHeader extends React.Component {
 	render() {
 		let {getFieldProps} = this.props.form;
 		const userShow = this.state.hasLogined ?
-		<Link>
+		<Link to={`/usercenter`}>
 			<Icon type="inbox"/>
 		</Link>
 		:
