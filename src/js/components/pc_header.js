@@ -20,7 +20,7 @@ class PCHeader extends React.Component {
     constructor() {
         super();
         this.state = {
-            current: 'top',
+            current:'top',
             modalVisible: false,
             action: 'login',
             hasLogined: false,
@@ -31,7 +31,7 @@ class PCHeader extends React.Component {
     componentWillMount(){
         if(localStorage.userid !== undefined){
             this.setState({hasLogined:true,userNickName:localStorage.userName});
-        }
+        };
     }
     setModalVisible(value)
     {
@@ -123,30 +123,30 @@ class PCHeader extends React.Component {
                             onClick={this
                             .handleClick
                             .bind(this)}
-                            selectedKeys={[this.state.current]}>
+                            selectedKeys={[this.props.current ? this.props.current : 'top']}>
                             <Menu.Item key="top">
-                                <Icon type="appstore"/>头条
+                                <Link to="/newscategory/top"><Icon type="appstore"/>头条</Link>
                             </Menu.Item>
                             <Menu.Item key="shehui">
-                                <Icon type="appstore"/>社会
+                                <Link to="/newscategory/shehui"><Icon type="appstore"/>社会</Link>
                             </Menu.Item>
                             <Menu.Item key="guonei">
-                                <Icon type="appstore"/>国内
+                                <Link to="/newscategory/guonei"><Icon type="appstore"/>国内</Link>
                             </Menu.Item>
                             <Menu.Item key="guoji">
-                                <Icon type="appstore"/>国际
+                                <Link to="/newscategory/guoji"><Icon type="appstore"/>国际</Link>
                             </Menu.Item>
                             <Menu.Item key="yule">
-                                <Icon type="appstore"/>娱乐
+                                <Link to="/newscategory/yule"><Icon type="appstore"/>娱乐</Link>
                             </Menu.Item>
                             <Menu.Item key="tiyu">
-                                <Icon type="appstore"/>体育
+                                <Link to="/newscategory/tiyu"><Icon type="appstore"/>体育</Link>
                             </Menu.Item>
                             <Menu.Item key="keji">
-                                <Icon type="appstore"/>科技
+                                <Link to="/newscategory/keji"><Icon type="appstore"/>科技</Link>
                             </Menu.Item>
                             <Menu.Item key="shishang">
-                                <Icon type="appstore"/>时尚
+                                <Link to="/newscategory/shishang"><Icon type="appstore"/>时尚</Link>
                             </Menu.Item>
                             {userShow}
                         </Menu>

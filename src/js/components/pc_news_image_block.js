@@ -10,7 +10,7 @@ export default class PCNewsImageBlock extends React.Component{
             news:''
         };
     };
-    componentWillMount(){
+    componentDidUpdate(){
         const myFetchOptions = {
             methods:'GET'
         };
@@ -41,7 +41,7 @@ export default class PCNewsImageBlock extends React.Component{
                     </div>
                     <div className="custom-card">
                         <h3 style={styleH3}>{newsItem.title}</h3>
-                        <p>{newsItem.author_name}</p>
+                        <p style={styleH3}>{newsItem.author_name}</p>
                     </div>
                 </Link>
             </div>

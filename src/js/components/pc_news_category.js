@@ -3,6 +3,8 @@ import {Row,Col,Tabs,Carousel} from 'antd';
 import PCNewsBlock from './pc_news_block'
 import PCNewsImageBlock from './pc_news_image_block';
 import PCProduct from './pc_product';
+import PCHeader from './pc_header';
+import PCFooter from './pc_footer';
 const TabPane = Tabs.TabPane;
 
 export default class PCNewsContainer extends React.Component{
@@ -16,6 +18,7 @@ export default class PCNewsContainer extends React.Component{
         };
         return(
             <div>
+                <PCHeader current={this.props.params.category}/>
                 <Row>
                     <Col span={2}></Col>
                     <Col span={20} className="container">
@@ -28,11 +31,11 @@ export default class PCNewsContainer extends React.Component{
                                     <div><img src="./src/images/carousel_4.jpg" alt=""/></div>
                                 </Carousel>
                             </div>
-                            <PCNewsImageBlock count={6} type="guoji" width="400px" cardTitle="国际头条" imageWidth="112px"/>
+                            <PCNewsImageBlock count={6} type={this.props.params.category} width="400px" imageWidth="112px"/>
                         </div>
                         <Tabs class="tabs_news">
                             <TabPane tab="新闻" key="1">
-                                <PCNewsBlock count={20} type={'top'} width="100%" borderd="false"/>
+                                <PCNewsBlock count={20} type={this.props.params.category} width="100%" borderd="false"/>
                             </TabPane>
                         </Tabs>
                         <Tabs class='tabs_product'>
@@ -41,12 +44,12 @@ export default class PCNewsContainer extends React.Component{
                             </TabPane>
                         </Tabs>
                         <div>
-                            <PCNewsImageBlock count={9} type="guonei" width="100%" cardTitle="国内新闻" imageWidth="112px"/>
-                            <PCNewsImageBlock count={20} type="yule" width="100%" cardTitle="娱乐新闻" imageWidth="112px"/>
+                            <PCNewsImageBlock count={30} type={this.props.params.category} width="100%" imageWidth="112px"/>
                         </div>
                     </Col>
                     <Col span={2}></Col>
                 </Row>
+                <PCFooter/>
             </div>
         )
     }
